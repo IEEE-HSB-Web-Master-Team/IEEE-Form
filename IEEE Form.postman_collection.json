@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "25e5bcdf-965a-4ce3-b96c-9cb47cd40eef",
+		"name": "IEEE Form",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26559151"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"email\":\"yousefsalah1242003@gmail.com\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Participant",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"Yousef\",\r\n  \"email\":\"yousefsalah1242003@gmail.com\",\r\n  \"phoneNumber\":\"01201501922\",\r\n  \"university\":\"Helwan\",\r\n  \"major\":\"CS\",\r\n  \"academicYear\":\"4\",\r\n  \"preference\":\"Web Development\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/part/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"part",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyQGllZWUiLCJpZCI6IjY3MjAxYWM1ODUwOWJlZDk3YWY2NGQzNiIsImlhdCI6MTczMDE1NzM1NH0.2VR-4TPny8Gp09AxNznW-ya2szv9Qmak5tGLdA0adu4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"accepted\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/part/671ff8ed67e461243a04e602",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"part",
+								"671ff8ed67e461243a04e602"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete  participant",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyQGllZWUiLCJpZCI6IjY3MjAxYWM1ODUwOWJlZDk3YWY2NGQzNiIsImlhdCI6MTczMDE1NzM1NH0.2VR-4TPny8Gp09AxNznW-ya2szv9Qmak5tGLdA0adu4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/part/671ff8ed67e461243a04e602",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"part",
+								"671ff8ed67e461243a04e602"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all participants",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyQGllZWUiLCJpZCI6IjY3MjAxYWM1ODUwOWJlZDk3YWY2NGQzNiIsImlhdCI6MTczMDE1NzM1NH0.2VR-4TPny8Gp09AxNznW-ya2szv9Qmak5tGLdA0adu4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/part/allparts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"part",
+								"allparts"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "lnfdl",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyQGllZWUiLCJpZCI6IjY3MjAxYWM1ODUwOWJlZDk3YWY2NGQzNiIsImlhdCI6MTczMDE1NzM1NH0.2VR-4TPny8Gp09AxNznW-ya2szv9Qmak5tGLdA0adu4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/part/allparts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"part",
+								"allparts"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "lnfdl",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
