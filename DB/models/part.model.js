@@ -8,7 +8,7 @@ const Tracks = [
 const partSchema = new Schema({
     name: { type: String, required: true },
     phoneNumber: { type: String, required: true ,min :11 , max : 11 },
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true },
     university: { type: String, required: true },
     major: { type: String, required: true },
     academicYear: { type: String, required: true },
