@@ -4,7 +4,7 @@ dotenv.config()
 export async function sendEmail ({to,subject,html } )
 {
     const transporter = nodemailer.createTransport( {
-        host: "smtp.gmail.com",
+        host: "ieee-form.vercel.app",
         port: 465,
         secure: true,
         service: "gmail",
