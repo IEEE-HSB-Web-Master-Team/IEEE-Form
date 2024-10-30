@@ -1,10 +1,21 @@
 import { Part } from "../../../DB/models/part.model.js";
 import { asyncHandler } from "../../utils/asyncHandler.js";
+import { registerTemp } from "../../utils/htmlTamplates.js";
+import { sendEmail } from "../../utils/sendEmail.js";
 
 export const register  = asyncHandler(async (req, res, next) => {
     const part = await Part.findOne({...req.body})
+    
     if(part)return next(new Error("You Have Register To This Track Before", { cause:400 }));
     await Part.create({...req.body})
+      // send mail
+  const html = registerTemp();
+  const messageSent = sendEmail({
+    to: req.body.email,
+    subject: "IEEE Confirmation",
+    html,
+  });
+  if (!messageSent) return next(new Error("Something Wrong! email not sent! "));
     return res.json({ success: true, message: "You Are Register Successfully ✅" });
 });
 export const updatePart = asyncHandler(async (req, res, next) => {
