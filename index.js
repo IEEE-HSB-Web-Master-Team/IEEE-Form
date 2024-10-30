@@ -11,6 +11,14 @@ const port = process.env.PORT
 app.use(express.json())
 // db connection
 await connectDB()
+// CORS
+app.use((req,res,next)=>{
+    res.setHeader("Access-Control-Allow-Origin","*")
+    res.setHeader("Access-Control-Allow-Headers","*")
+    res.setHeader("Access-Control-Allow-Methods","*")
+    res.setHeader("Access-Control-Private-Network",true)
+    return next()
+})
 // routers
 app.use('/part',partRouter)
 app.use('/auth',authRouter)
