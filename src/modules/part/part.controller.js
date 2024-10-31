@@ -4,7 +4,8 @@ import { registerTemp } from "../../utils/htmlTamplates.js";
 import { sendEmail } from "../../utils/sendEmail.js";
 
 export const register  = asyncHandler(async (req, res, next) => {
-    const part = await Part.findOne({...req.body})
+    const {email , preference} = req.body
+    const part = await Part.findOne({email , preference})
     
     if(part)return next(new Error("You Have Register To This Track Before", { cause:400 }));
     await Part.create({...req.body})
