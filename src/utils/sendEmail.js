@@ -20,7 +20,6 @@ export async function sendEmail ({to,subject,html } )
         subject,
         html
     } )
-    console.log(info);
     if ( info.accepted.length > 0 ) return true 
     return false
 }
